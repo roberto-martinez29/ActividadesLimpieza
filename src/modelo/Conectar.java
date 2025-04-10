@@ -23,21 +23,6 @@ public class Conectar {
         }
         return con;
     }
-        public static void main(String[] args) {
-        // Crear una instancia de la clase Conectar
-        Conectar conexion = new Conectar();
-
-        // Intentar obtener la conexión
-        if (conexion.getConexion() != null) {
-            System.out.println("Prueba exitosa: ¡Conexión establecida correctamente!");
-        } else {
-            System.out.println("Prueba fallida: No se pudo establecer conexión.");
-        }
-    }
-
- 
-
-
 
 
 }
