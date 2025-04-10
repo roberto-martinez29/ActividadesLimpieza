@@ -27,8 +27,9 @@ public class Principal extends javax.swing.JFrame {
     private void initComponents() {
 
         label1 = new java.awt.Label();
-        button1 = new java.awt.Button();
-        button2 = new java.awt.Button();
+        btnAdmin = new java.awt.Button();
+        btnUsuario = new java.awt.Button();
+        btnSalir = new java.awt.Button();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -38,25 +39,47 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().add(label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
         label1.getAccessibleContext().setAccessibleName("lblAct");
 
-        button1.setLabel("Administrador ");
-        button1.setName(""); // NOI18N
-        getContentPane().add(button1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, -1, -1));
-
-        button2.setLabel("Usuario ");
-        button2.addActionListener(new java.awt.event.ActionListener() {
+        btnAdmin.setLabel("Administrador ");
+        btnAdmin.setName(""); // NOI18N
+        btnAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button2ActionPerformed(evt);
+                btnAdminActionPerformed(evt);
             }
         });
-        getContentPane().add(button2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 230, -1, -1));
+        getContentPane().add(btnAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, -1));
+
+        btnUsuario.setLabel("Usuario ");
+        btnUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUsuarioActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 80, -1));
+
+        btnSalir.setLabel("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 230, 80, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
+    private void btnUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuarioActionPerformed
        this.dispose();
        new Usuario().setVisible(true);
-    }//GEN-LAST:event_button2ActionPerformed
+    }//GEN-LAST:event_btnUsuarioActionPerformed
+
+    private void btnAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminActionPerformed
+       this.dispose();
+       new LogAdmin().setVisible(true);
+    }//GEN-LAST:event_btnAdminActionPerformed
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btnSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -94,8 +117,9 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.awt.Button button1;
-    private java.awt.Button button2;
+    private java.awt.Button btnAdmin;
+    private java.awt.Button btnSalir;
+    private java.awt.Button btnUsuario;
     private java.awt.Label label1;
     // End of variables declaration//GEN-END:variables
 }
