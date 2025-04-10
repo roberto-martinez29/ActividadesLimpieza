@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 
 public class Conectar {
     public static final String URL=
-            "jdbc:mysql://localhost:3306/actividades_limpieza";
+           "jdbc:mysql://localhost:3306/actividades_limpieza";
     public static final String USER="root";
     public static final String PASSWORD="Alberto123";
 
@@ -23,6 +23,21 @@ public class Conectar {
         }
         return con;
     }
+        public static void main(String[] args) {
+        // Crear una instancia de la clase Conectar
+        Conectar conexion = new Conectar();
+
+        // Intentar obtener la conexión
+        if (conexion.getConexion() != null) {
+            System.out.println("Prueba exitosa: ¡Conexión establecida correctamente!");
+        } else {
+            System.out.println("Prueba fallida: No se pudo establecer conexión.");
+        }
+    }
+
+ 
+
+
 
 
 }
