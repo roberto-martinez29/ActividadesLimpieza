@@ -170,6 +170,8 @@ public class ActualizarEmpleado extends javax.swing.JFrame {
             e.setNombre(this.nombreTxt.getText());
             e.setPaterno(this.paternoTxt.getText());
             e.setMaterno(this.maternoTxt.getText());
+            e.setNumCuadrilla(Integer.parseInt(this.numCuadrillaTxt.getText()));
+            e.setIdEmpleado(Integer.parseInt(this.idTxt.getText()));
             if(this.jefeChk.isSelected()){
                 e.setEsJefe(1);
             }

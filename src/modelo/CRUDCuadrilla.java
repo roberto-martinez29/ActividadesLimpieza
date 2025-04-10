@@ -102,6 +102,7 @@ public class CRUDCuadrilla extends Conectar{
             Cuadrilla c=new Cuadrilla();
             if(rs.next()){
                 c=new Cuadrilla();
+                c.setNumCuadrilla(id);
                 c.setNombre(rs.getString(2));
             }            
             return c;

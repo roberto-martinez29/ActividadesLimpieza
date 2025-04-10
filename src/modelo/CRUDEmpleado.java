@@ -18,7 +18,7 @@ public class CRUDEmpleado extends Conectar{
     public boolean registrar(Empleado em){
         PreparedStatement ps = null;
         Connection con = getConexion();
-        String sql="INSERT INTO empleado (nombre,paterno,materno,numCuadrilla,esJefe) values(?,?,?,?,?)";
+        String sql="INSERT INTO actividadeslimpieza.empleado (nombre,paterno,materno,numCuadrilla,esJefe) values(?,?,?,?,?)";
         try {
             ps=con.prepareStatement(sql);
             ps.setString(1, em.getNombre());

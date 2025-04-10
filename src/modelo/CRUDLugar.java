@@ -101,6 +101,7 @@ public class CRUDLugar extends Conectar{
             Lugar em=new Lugar();
             if(rs.next()){
                 em=new Lugar();
+                em.setIdLugar(id);
                 em.setDescripcion(rs.getString(2));
             }            
             return em;
