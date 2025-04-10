@@ -4,6 +4,10 @@
  */
 package vista;
 
+import controlador.Controlador;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author alber
@@ -26,6 +30,8 @@ public class Usuario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -35,6 +41,24 @@ public class Usuario extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
         jMenu1.setText("Actividades");
 
@@ -63,6 +87,11 @@ public class Usuario extends javax.swing.JFrame {
         jMenu3.setText("Cuadrillas ");
 
         jMenuItem3.setText("Listar");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem3);
 
         jMenuBar1.add(jMenu3);
@@ -73,23 +102,108 @@ public class Usuario extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 561, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(90, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 341, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
+        DefaultTableModel modelo= new DefaultTableModel();
+        String [] columnNames={"idActividad","descripcion","numCuadrilla","imagen","idLugar"};
+        modelo.setColumnIdentifiers(columnNames);
+        try
+        {
+            Controlador cr= new Controlador();
+            ArrayList<actividad> lista=cr.listaAct();
+            
+            Object[] fila = new Object[modelo.getColumnCount()];
+            
+            for (int i = 0;<lista.size();i++>)
+            {
+                fila[0]=lista.get(i).getidActividad();
+                fila[1]=lista.get(i).getdescripcion();
+                fila[2]=lista.get(i).getnumCuadrilla();
+                fila[3]=lista.get(i).getimagen();
+                fila[4]=lista.get(i).getidLugar();
+                
+            }
+            tabla.setModel(modelo);
+        }
+        catch (Exception ex){
+            System.err.println("Ha ocurrido un error!"+ex.getMessage());
+        }
+        
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
+        DefaultTableModel modelo= new DefaultTableModel();
+        String [] columnNames={"numCuadrilla","nombre"};
+        modelo.setColumnIdentifiers(columnNames);
+        try
+        {
+            Controlador cr= new Controlador();
+            ArrayList<cuadrilla> lista=cr.listaAct();
+            
+            Object[] fila = new Object[modelo.getColumnCount()];
+            
+            for (int i = 0;<lista.size();i++>)
+            {
+                fila[0]=lista.get(i).getnumCuadrilla();
+                fila[1]=lista.get(i).getnombre();
+
+                
+            }
+            tabla.setModel(modelo);
+        }
+        catch (Exception ex){
+            System.err.println("Ha ocurrido un error!"+ex.getMessage());
+        }
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowOpened
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        DefaultTableModel modelo= new DefaultTableModel();
+        String [] columnNames={"idEmpleado","nombre","paterno","materno","numCuadrilla","esJefe"};
+        modelo.setColumnIdentifiers(columnNames);
+        try
+        {
+            Controlador cr= new Controlador();
+            ArrayList<empleado> lista=cr.listaAct();
+            
+            Object[] fila = new Object[modelo.getColumnCount()];
+            
+            for (int i = 0;<lista.size();i++>)
+            {
+                fila[0]=lista.get(i).getidEmpleado();
+                fila[1]=lista.get(i).getnombre();
+                fila[2]=lista.get(i).getpaterno();
+                fila[3]=lista.get(i).getmaterno();
+                fila[4]=lista.get(i).getnumCuadrilla();
+                fila[5]=lista.get(i).getesJefe();
+
+
+                
+            }
+            tabla.setModel(modelo);
+        }
+        catch (Exception ex){
+            System.err.println("Ha ocurrido un error!"+ex.getMessage());
+        }
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -134,5 +248,7 @@ public class Usuario extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
