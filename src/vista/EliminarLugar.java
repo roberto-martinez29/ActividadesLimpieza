@@ -139,8 +139,8 @@ public class EliminarLugar extends javax.swing.JFrame {
     }//GEN-LAST:event_agregarBtnActionPerformed
 
     private void atrasBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasBtnActionPerformed
-        // TODO add your handling code here:
-        this.dispose();
+         this.dispose();
+         new menuAdmin().setVisible(true);
     }//GEN-LAST:event_atrasBtnActionPerformed
 
     private void buscarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarBtnActionPerformed
