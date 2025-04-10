@@ -29,6 +29,8 @@ public class LogAdmin extends javax.swing.JFrame {
         
         if (rs.next()) {
             JOptionPane.showMessageDialog(this, "¡Inicio de sesión exitoso!");
+            new menuAdmin().setVisible(true);
+            this.dispose();
             
         } else {
             JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos");

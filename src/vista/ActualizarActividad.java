@@ -192,7 +192,9 @@ public class ActualizarActividad extends javax.swing.JFrame {
 
     private void atrasBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasBtnActionPerformed
         // TODO add your handling code here:
-        this.dispose();        
+         this.dispose();
+         new menuAdmin().setVisible(true);
+        
     }//GEN-LAST:event_atrasBtnActionPerformed
 
     private void imgBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imgBtnActionPerformed
