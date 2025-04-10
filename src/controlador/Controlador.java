@@ -59,4 +59,20 @@ public class Controlador {
         CRUDActividad cr=new CRUDActividad();
         return cr.buscar(id);
     }
+    public void registrarLugar(Lugar p){
+        CRUDLugar cr=new CRUDLugar();
+        cr.registrar(p);
+    }
+    public void actualizarLugar(int id, Lugar e){
+        CRUDLugar cr=new CRUDLugar();
+        cr.actualizar(id,e);
+    }
+    public void eliminarLugar(int id){
+        CRUDLugar cr=new CRUDLugar();
+        cr.eliminar(id);
+    }
+    public Lugar buscarLugar(int id){
+        CRUDLugar cr=new CRUDLugar();
+        return cr.buscar(id);
+    }
 }

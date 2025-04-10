@@ -4,12 +4,6 @@
  */
 package modelo;
 
-
-import java.sql.Blob;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,17 +14,14 @@ import java.util.ArrayList;
  *
  * @author rober
  */
-public class CRUDActividad extends Conectar{
-    public boolean registrar(Actividad mat){
+public class CRUDLugar extends Conectar{
+    public boolean registrar(Lugar em){
         PreparedStatement ps = null;
         Connection con = getConexion();
-        String sql="INSERT INTO actividad (descripcion,numCuadrilla,imagen,idLugar) values(?,?,?,?)";
+        String sql="INSERT INTO lugar (descripcion) values(?)";
         try {
             ps=con.prepareStatement(sql);
-            ps.setString(1, mat.getDescripcion());
-            ps.setInt(2, mat.getNumCuadrilla());
-            ps.setBlob(3, new FileInputStream(new File(mat.getImagen())));
-            ps.setInt(4, mat.getLugar());
+            ps.setString(1, em.getDescripcion());           
             ps.execute();
             return true;
         }
@@ -47,19 +38,15 @@ public class CRUDActividad extends Conectar{
                 System.err.println(e);
             }
         }
-
     }
-    public boolean actualizar(int id, Actividad mat){
+    public boolean actualizar(int id, Lugar em){
         PreparedStatement ps = null;
         Connection con = getConexion();
-        String sql="UPDATE actividad SET descripcion=?,numCuadrilla=?,imagen=?,idLugar=? where idActividad=?";
+        String sql="UPDATE lugar SET descripcion=? where idLugar=?";
         try {
             ps=con.prepareStatement(sql);
-            ps.setString(1, mat.getDescripcion());
-            ps.setInt(2, mat.getNumCuadrilla());            
-            ps.setBlob(3, new FileInputStream(new File(mat.getImagen())));
-            ps.setInt(4, mat.getLugar());    
-            ps.setInt(5, id);    
+            ps.setString(1, em.getDescripcion());
+            ps.setInt(6, id);
             ps.execute();
             return true;
         }
@@ -81,7 +68,7 @@ public class CRUDActividad extends Conectar{
     public boolean eliminar(int id){
         PreparedStatement ps = null;
         Connection con = getConexion();
-        String sql="DELETE FROM actividad where idActividad=?";
+        String sql="DELETE FROM lugar where idLugar=?";
         try {
             ps=con.prepareStatement(sql);
             ps.setInt(1, id);
@@ -103,34 +90,25 @@ public class CRUDActividad extends Conectar{
         }
 
     }
-    public Actividad buscar(int id){
+    public Lugar buscar(int id){
         PreparedStatement ps = null;
         Connection con = getConexion();
-        String sql="SELECT * FROM actividad WHERE idActividad = ?";
+        String sql="SELECT * FROM lugar WHERE idLugar = ?";
         try {
             ps=con.prepareStatement(sql);
             ps.setInt(1, id);
             ResultSet rs=ps.executeQuery();
-            Actividad m=new Actividad();
+            Lugar em=new Lugar();
             if(rs.next()){
-                m=new Actividad();
-                m.setIdActividad(rs.getInt(1));
-                m.setDescripcion(rs.getString(2));
-                m.setNumCuadrilla(rs.getInt(3));
-                Blob img=rs.getBlob(3);
-                String path="C:\\Users\\rober\\Documents\\NetBeansProjects\\ActividadesLimpieza\\src\\imagenes\\img.jpg";
-                byte[]b=img.getBytes(1, (int)img.length());
-                FileOutputStream fos=new FileOutputStream(path);
-                fos.write(b);
-                m.setImagen(path);
-                m.setLugar(rs.getInt(5));
+                em=new Lugar();
+                em.setDescripcion(rs.getString(2));
             }            
-            return m;
+            return em;
         }
         catch (Exception e){
             System.err.println(e);
-            Actividad m=new Actividad();
-            return m;
+            Lugar em=new Lugar();
+            return em;
         }
         finally {
             try {
@@ -143,27 +121,24 @@ public class CRUDActividad extends Conectar{
         }
 
     }
-    public ArrayList<Actividad> lista(){
+    public ArrayList<Lugar> lista(){
         PreparedStatement ps = null;
         Connection con = getConexion();
-        String sql="SELECT * FROM actividad";
+        String sql="SELECT * FROM lugar";
         try {
             ps=con.prepareStatement(sql);
             ResultSet rs=ps.executeQuery(sql);
-            Actividad m=new Actividad();
-            ArrayList<Actividad> lista=new ArrayList();
+            Lugar em=new Lugar();
+            ArrayList<Lugar> lista=new ArrayList();
             while(rs.next()){
-                m.setIdActividad(rs.getInt(1));
-                m.setDescripcion(rs.getString(2));
-                m.setNumCuadrilla(rs.getInt(3));
-                m.setImagen(rs.getString(4));
-                m.setLugar(rs.getInt(5));
-                lista.add(m);
+                em.setIdLugar(rs.getInt(1));
+                em.setDescripcion(rs.getString(2));
+                lista.add(em);
             }
             return lista;
         }
         catch (Exception e){
-            ArrayList<Actividad> lista=new ArrayList();
+            ArrayList<Lugar> lista=new ArrayList();
             return lista;
         }
         finally {
@@ -175,6 +150,5 @@ public class CRUDActividad extends Conectar{
                 System.err.println(e);
             }
         }
-
     }
 }
