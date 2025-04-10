@@ -65,7 +65,7 @@ public class ActualizarActividad extends javax.swing.JFrame {
 
         jLabel4.setText("N° cuadrilla");
 
-        agregarBtn.setText("Agregar");
+        agregarBtn.setText("Actualizar");
         agregarBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 agregarBtnActionPerformed(evt);
