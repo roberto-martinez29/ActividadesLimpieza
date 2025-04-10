@@ -58,7 +58,7 @@ public class EliminarEmpleado extends javax.swing.JFrame {
 
         jefeChk.setText("Es Jefe");
 
-        agregarBtn.setText("Agregar");
+        agregarBtn.setText("Eliminar");
         agregarBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 agregarBtnActionPerformed(evt);
