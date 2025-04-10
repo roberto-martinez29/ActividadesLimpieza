@@ -18,12 +18,13 @@ public class CRUDActividad extends Conectar{
     public boolean registrar(Actividad mat){
         PreparedStatement ps = null;
         Connection con = getConexion();
-        String sql="INSERT INTO actividad (descripcion,numCuadrilla,imagen) values(?,?,?)";
+        String sql="INSERT INTO actividad (descripcion,numCuadrilla,imagen,idLugar) values(?,?,?,?)";
         try {
             ps=con.prepareStatement(sql);
             ps.setString(1, mat.getDescripcion());
             ps.setInt(2, mat.getNumCuadrilla());
             ps.setString(3, mat.getImagen());
+            ps.setInt(4, mat.getLugar());
             ps.execute();
             return true;
         }
@@ -45,13 +46,14 @@ public class CRUDActividad extends Conectar{
     public boolean actualizar(int id, Actividad mat){
         PreparedStatement ps = null;
         Connection con = getConexion();
-        String sql="UPDATE actividad SET descripcion=?,numCuadrilla=?,imagen=? where idActividad=?";
+        String sql="UPDATE actividad SET descripcion=?,numCuadrilla=?,imagen=?,idLugar=? where idActividad=?";
         try {
             ps=con.prepareStatement(sql);
             ps.setString(1, mat.getDescripcion());
             ps.setInt(2, mat.getNumCuadrilla());            
             ps.setString(3, mat.getImagen());
-            ps.setInt(4, id);    
+            ps.setInt(4, mat.getLugar());    
+            ps.setInt(5, id);    
             ps.execute();
             return true;
         }
@@ -110,6 +112,7 @@ public class CRUDActividad extends Conectar{
                 m.setDescripcion(rs.getString(2));
                 m.setNumCuadrilla(rs.getInt(3));
                 m.setImagen(rs.getString(4));
+                m.setLugar(rs.getInt(5));
             }            
             return m;
         }
@@ -143,6 +146,7 @@ public class CRUDActividad extends Conectar{
                 m.setDescripcion(rs.getString(2));
                 m.setNumCuadrilla(rs.getInt(3));
                 m.setImagen(rs.getString(4));
+                m.setLugar(rs.getInt(5));
                 lista.add(m);
             }
             return lista;

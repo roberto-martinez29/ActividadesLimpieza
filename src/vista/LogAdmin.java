@@ -13,7 +13,7 @@ public class LogAdmin extends javax.swing.JFrame {
   
     public LogAdmin() {
         initComponents();
-  
+
     }
     private void verificarCredenciales(String usuario, String contraseña) {
     Conectar conectar = new Conectar(); // Crea una instancia de tu clase de conexión
