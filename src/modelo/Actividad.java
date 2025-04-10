@@ -13,6 +13,7 @@ public class Actividad {
     private String descripcion;
     private int numCuadrilla;
     private String imagen;
+    private int idLugar;
 
     public int getIdActividad() {
         return idActividad;
@@ -45,5 +46,13 @@ public class Actividad {
     public void setImagen(String imagen) {
         this.imagen = imagen;
     }    
+
+    public int getLugar() {
+        return idLugar;
+    }
+
+    public void setLugar(int lugar) {
+        this.idLugar = lugar;
+    }
         
 }

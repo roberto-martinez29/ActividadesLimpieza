@@ -16,7 +16,7 @@ public class LogAdmin extends javax.swing.JFrame {
 
     public LogAdmin() {
         initComponents();
-        cx=new Conectar("administradores");
+        cx=new Conectar();
     }
 
 
