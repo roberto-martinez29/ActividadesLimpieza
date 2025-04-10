@@ -148,7 +148,7 @@ public class EliminarCuadrilla extends javax.swing.JFrame {
             Controlador cr=new Controlador();
             Cuadrilla m=cr.buscarCuadrilla(Integer.parseInt(this.numCuadrillaTxt.getText().replaceAll(",", "")));            
             this.nombreTxt.setText(m.getNombre());
-            this.nombreTxt.setText(String.valueOf(m.getNumCuadrilla()));            
+            this.numCuadrillaTxt.setText(String.valueOf(m.getNumCuadrilla()));            
         }
         else{
             JOptionPane.showMessageDialog(null, "Datos inválidos");

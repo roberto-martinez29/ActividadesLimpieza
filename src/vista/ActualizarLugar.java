@@ -6,18 +6,20 @@ package vista;
 
 import controlador.Controlador;
 import javax.swing.JOptionPane;
+import modelo.Cuadrilla;
 import modelo.Empleado;
+import modelo.Lugar;
 
 /**
  *
  * @author rober
  */
-public class ActualizarEmpleado extends javax.swing.JFrame {
+public class ActualizarLugar extends javax.swing.JFrame {
 
     /**
      * Creates new form ActualizarEmpleado
      */
-    public ActualizarEmpleado() {
+    public ActualizarLugar() {
         initComponents();
     }
 
@@ -32,31 +34,18 @@ public class ActualizarEmpleado extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        nombreTxt = new javax.swing.JTextField();
-        paternoTxt = new javax.swing.JTextField();
-        maternoTxt = new javax.swing.JTextField();
-        numCuadrillaTxt = new javax.swing.JTextField();
-        jefeChk = new javax.swing.JCheckBox();
+        descripcionTxt = new javax.swing.JTextField();
+        idTxt = new javax.swing.JTextField();
         agregarBtn = new javax.swing.JButton();
         atrasBtn = new javax.swing.JButton();
         buscarBtn = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
-        idTxt = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Nombre");
+        jLabel1.setText("Descripcion");
 
-        jLabel2.setText("Ap. Paterno");
-
-        jLabel3.setText("Ap. Materno");
-
-        jLabel4.setText("N° cuadrilla");
-
-        jefeChk.setText("Es Jefe");
+        jLabel4.setText("Id");
 
         agregarBtn.setText("Actualizar");
         agregarBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -79,8 +68,6 @@ public class ActualizarEmpleado extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setText("Id");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -89,7 +76,7 @@ public class ActualizarEmpleado extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 25, Short.MAX_VALUE)
                         .addComponent(buscarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(atrasBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -97,22 +84,12 @@ public class ActualizarEmpleado extends javax.swing.JFrame {
                         .addComponent(agregarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel4)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(idTxt)
-                            .addComponent(nombreTxt)
-                            .addComponent(paternoTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE)
-                            .addComponent(maternoTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE)
-                            .addComponent(numCuadrillaTxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jefeChk)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                            .addComponent(descripcionTxt)
+                            .addComponent(idTxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -120,26 +97,12 @@ public class ActualizarEmpleado extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
+                    .addComponent(jLabel4)
                     .addComponent(idTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(5, 5, 5)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(nombreTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(paternoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(maternoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(numCuadrillaTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jefeChk)
+                    .addComponent(descripcionTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(agregarBtn)
@@ -164,20 +127,11 @@ public class ActualizarEmpleado extends javax.swing.JFrame {
 
     private void agregarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarBtnActionPerformed
         // TODO add your handling code here:
-        if(!this.nombreTxt.getText().isBlank() && !this.paternoTxt.getText().isBlank() && !this.maternoTxt.getText().isBlank() &&
-            !this.numCuadrillaTxt.getText().isBlank() && !this.idTxt.getText().isBlank()){
-            Empleado e=new Empleado();
-            e.setNombre(this.nombreTxt.getText());
-            e.setPaterno(this.paternoTxt.getText());
-            e.setMaterno(this.maternoTxt.getText());
-            if(this.jefeChk.isSelected()){
-                e.setEsJefe(1);
-            }
-            else{
-                e.setEsJefe(0);
-            }
+        if(!this.descripcionTxt.getText().isBlank() && !this.idTxt.getText().isBlank()){
+            Lugar e=new Lugar();
+            e.setDescripcion(this.descripcionTxt.getText());           
             Controlador cr=new Controlador();
-            cr.actualizarEmp(Integer.parseInt(this.idTxt.getText()),e);
+            cr.actualizarLugar(Integer.parseInt(this.idTxt.getText()),e);
         }
         else{
             JOptionPane.showMessageDialog(null, "Datos inválidos");
@@ -193,14 +147,9 @@ public class ActualizarEmpleado extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(!this.idTxt.getText().isBlank()){            
             Controlador cr=new Controlador();
-            Empleado m=cr.buscarEmp(Integer.parseInt(this.idTxt.getText().replaceAll(",", "")));            
-            this.nombreTxt.setText(m.getNombre());
-            this.paternoTxt.setText(m.getPaterno());
-            this.maternoTxt.setText(m.getPaterno());
-            this.numCuadrillaTxt.setText(String.valueOf(m.getNumCuadrilla()));
-            if(m.getEsJefe()==1){
-                this.jefeChk.setSelected(true);
-            }
+            Lugar m=cr.buscarLugar(Integer.parseInt(this.idTxt.getText().replaceAll(",", "")));            
+            this.descripcionTxt.setText(m.getDescripcion());
+            this.idTxt.setText(String.valueOf(m.getIdLugar()));            
         }
         else{
             JOptionPane.showMessageDialog(null, "Datos inválidos");
@@ -224,20 +173,23 @@ public class ActualizarEmpleado extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ActualizarEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ActualizarLugar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ActualizarEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ActualizarLugar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ActualizarEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ActualizarLugar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ActualizarEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ActualizarLugar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ActualizarEmpleado().setVisible(true);
+                new ActualizarLugar().setVisible(true);
             }
         });
     }
@@ -246,17 +198,10 @@ public class ActualizarEmpleado extends javax.swing.JFrame {
     private javax.swing.JButton agregarBtn;
     private javax.swing.JButton atrasBtn;
     private javax.swing.JButton buscarBtn;
+    private javax.swing.JTextField descripcionTxt;
     private javax.swing.JTextField idTxt;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JCheckBox jefeChk;
-    private javax.swing.JTextField maternoTxt;
-    private javax.swing.JTextField nombreTxt;
-    private javax.swing.JTextField numCuadrillaTxt;
-    private javax.swing.JTextField paternoTxt;
     // End of variables declaration//GEN-END:variables
 }
