@@ -225,7 +225,7 @@ public class EliminarActividad1 extends javax.swing.JFrame {
             Image img;
             try 
             {
-                img = ImageIO.read(new File("C:\\Users\\rober\\Documents\\NetBeansProjects\\ActividadesLimpieza\\src\\imagenes\\img.jpg"));
+                img = ImageIO.read(new File("C:\\Users\\rober\\Documents\\NetBeansProjects\\ActividadesLimpieza\\src\\imagenes\\img.jpg")).getScaledInstance(388, 176, Image.SCALE_SMOOTH);
                 ImageIcon icon=new ImageIcon(img);
                 this.foto.setIcon(icon);
             } 

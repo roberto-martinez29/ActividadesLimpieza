@@ -179,7 +179,7 @@ public class EliminarEmpleado extends javax.swing.JFrame {
                 e.setEsJefe(0);
             }
             Controlador cr=new Controlador();
-            cr.actualizarEmp(Integer.parseInt(this.idTxt.getText()),e);
+            cr.eliminarEmp(Integer.parseInt(this.idTxt.getText()));
         }
         else{
             JOptionPane.showMessageDialog(null, "Datos inválidos");
@@ -197,9 +197,9 @@ public class EliminarEmpleado extends javax.swing.JFrame {
             Controlador cr=new Controlador();
             Empleado m=cr.buscarEmp(Integer.parseInt(this.idTxt.getText().replaceAll(",", "")));            
             this.nombreTxt.setText(m.getNombre());
-            this.nombreTxt.setText(m.getPaterno());
-            this.nombreTxt.setText(m.getPaterno());
-            this.nombreTxt.setText(String.valueOf(m.getNumCuadrilla()));
+            this.paternoTxt.setText(m.getPaterno());
+            this.maternoTxt.setText(m.getMaterno());
+            this.numCuadrillaTxt.setText(String.valueOf(m.getNumCuadrilla()));
             if(m.getEsJefe()==1){
                 this.jefeChk.setSelected(true);
             }

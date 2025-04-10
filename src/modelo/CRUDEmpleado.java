@@ -76,7 +76,7 @@ public class CRUDEmpleado extends Conectar{
     public boolean eliminar(int id){
         PreparedStatement ps = null;
         Connection con = getConexion();
-        String sql="DELETE FROM empelado where idEmpleado=?";
+        String sql="DELETE FROM empleado where idEmpleado=?";
         try {
             ps=con.prepareStatement(sql);
             ps.setInt(1, id);

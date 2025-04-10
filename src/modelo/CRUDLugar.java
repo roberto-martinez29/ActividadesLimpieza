@@ -46,7 +46,7 @@ public class CRUDLugar extends Conectar{
         try {
             ps=con.prepareStatement(sql);
             ps.setString(1, em.getDescripcion());
-            ps.setInt(6, id);
+            ps.setInt(2, id);
             ps.execute();
             return true;
         }

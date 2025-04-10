@@ -217,7 +217,7 @@ public class ActualizarActividad extends javax.swing.JFrame {
 
     private void buscarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarBtnActionPerformed
         // TODO add your handling code here:
-        if(!this.numCuadrillaTxt.getText().isBlank()){            
+        if(!this.idTxt.getText().isBlank()){            
             Controlador cr=new Controlador();
             Actividad m=cr.buscarAct(Integer.parseInt(this.idTxt.getText().replaceAll(",", "")));            
             this.descTxt.setText(m.getDescripcion());
@@ -227,9 +227,10 @@ public class ActualizarActividad extends javax.swing.JFrame {
             Image img;
             try 
             {
-                img = ImageIO.read(new File("C:\\Users\\rober\\Documents\\NetBeansProjects\\ActividadesLimpieza\\src\\imagenes\\img.jpg"));
+                img = ImageIO.read(new File("C:\\Users\\rober\\Documents\\NetBeansProjects\\ActividadesLimpieza\\src\\imagenes\\img.jpg")).getScaledInstance(388, 176, Image.SCALE_SMOOTH);                
                 ImageIcon icon=new ImageIcon(img);
-                this.foto.setIcon(icon);
+                
+                this.foto.setIcon(icon);                
             } 
             catch (IOException e) 
             {

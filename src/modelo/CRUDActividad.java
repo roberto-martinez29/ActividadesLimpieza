@@ -117,7 +117,7 @@ public class CRUDActividad extends Conectar{
                 m.setIdActividad(rs.getInt(1));
                 m.setDescripcion(rs.getString(2));
                 m.setNumCuadrilla(rs.getInt(3));
-                Blob img=rs.getBlob(3);
+                Blob img=rs.getBlob(4);
                 String path="C:\\Users\\rober\\Documents\\NetBeansProjects\\ActividadesLimpieza\\src\\imagenes\\img.jpg";
                 byte[]b=img.getBytes(1, (int)img.length());
                 FileOutputStream fos=new FileOutputStream(path);
