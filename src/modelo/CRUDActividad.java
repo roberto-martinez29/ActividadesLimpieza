@@ -4,6 +4,12 @@
  */
 package modelo;
 
+
+import java.sql.Blob;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -23,7 +29,7 @@ public class CRUDActividad extends Conectar{
             ps=con.prepareStatement(sql);
             ps.setString(1, mat.getDescripcion());
             ps.setInt(2, mat.getNumCuadrilla());
-            ps.setString(3, mat.getImagen());
+            ps.setBlob(3, new FileInputStream(new File(mat.getImagen())));
             ps.setInt(4, mat.getLugar());
             ps.execute();
             return true;
@@ -51,7 +57,7 @@ public class CRUDActividad extends Conectar{
             ps=con.prepareStatement(sql);
             ps.setString(1, mat.getDescripcion());
             ps.setInt(2, mat.getNumCuadrilla());            
-            ps.setString(3, mat.getImagen());
+            ps.setBlob(3, new FileInputStream(new File(mat.getImagen())));
             ps.setInt(4, mat.getLugar());    
             ps.setInt(5, id);    
             ps.execute();
@@ -111,7 +117,12 @@ public class CRUDActividad extends Conectar{
                 m.setIdActividad(rs.getInt(1));
                 m.setDescripcion(rs.getString(2));
                 m.setNumCuadrilla(rs.getInt(3));
-                m.setImagen(rs.getString(4));
+                Blob img=rs.getBlob(3);
+                String path="C:\\Users\\rober\\Documents\\NetBeansProjects\\ActividadesLimpieza\\src\\imagenes\\img.jpg";
+                byte[]b=img.getBytes(1, (int)img.length());
+                FileOutputStream fos=new FileOutputStream(path);
+                fos.write(b);
+                m.setImagen(path);
                 m.setLugar(rs.getInt(5));
             }            
             return m;
